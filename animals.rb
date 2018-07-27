@@ -1,13 +1,4 @@
-class Bird
-  def talk(name)
-    puts "#{name} says Chirp Chirp!"
-  end
-  def move(name, destination)
-    puts "#{name} flies to the #{destination}"
-  end
-end
-
-class Dog
+class Animal
   attr_reader :name, :age
 
   def name=(value)
@@ -38,12 +29,28 @@ class Dog
 
 end
 
-class Cat
-  def talk(name)
-    puts "#{name} says Meow!"
+class Dog < Animal
+  def to_s
+    "#{@name} the dog, age #{age}"
   end
-  def move(name, destination)
-    puts "#{name} runs to the #{destination}"
+end
+
+class Cat < Animal
+  def talk
+    puts "#{@name} says Meow!"
+  end
+end
+
+class Bird < Animal
+  def talk
+    puts "#{@name} says Chirp! Chirp!"
+  end
+end
+
+class Armadillo < Animal
+  def move(destination)
+    puts "#{@name} unrolls!"
+    super
   end
 end
 
@@ -53,3 +60,34 @@ dog.age = 3
 dog.report_age
 dog.talk
 dog.move("bed")
+puts dog.to_s
+
+tex = Armadillo.new
+tex.name = "Tex"
+tex.age = 2
+tex.move("other side of the road")
+
+
+# class Robot
+#   attr_accessor :name
+#   def activate
+#     puts "#{@name} is powering up"
+#   end
+#
+#   def move(destination)
+#     puts "#{@name} walks to #{destination}"
+#   end
+# end
+#
+# class SolarBot < Robot
+#
+#   def activate
+#     puts "#{@name} deploys solar panel"
+#     super
+#   end
+#
+# end
+#
+# sunny = SolarBot.new
+# sunny.name = "Sunny"
+# sunny.activate
