@@ -1,5 +1,7 @@
 class Employee
+
   attr_reader :name, :salary
+
 
   def name=(name)
     if name == ""
@@ -15,10 +17,19 @@ class Employee
     @salary = salary
   end
 
+  def initialize(name = "Anonymous", salary = 0.0)
+    self.name = name
+    self.salary = salary
+  end
+
   def print_pay_stub
-    puts "Name: #{@name}"
-    pay_for_period = (@salary/365) * 14
+    puts "Name: #{name}"
+    pay_for_period = format("%.2f", (salary/365.0) * 14)
     puts "Pay This Period: $#{pay_for_period}"
   end
 
 end
+
+amy = Employee.new("Amy Blake", 50000)
+amy.print_pay_stub
+
