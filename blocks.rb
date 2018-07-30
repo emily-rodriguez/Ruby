@@ -1,6 +1,6 @@
-def my_method(&my_block)
+def my_method
   puts "We're in the method, about to invoke your block!"
-  my_block.call
+  yield
   puts "We're back in the method!"
 end
 
