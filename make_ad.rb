@@ -5,6 +5,12 @@
 #
 # review_file.close
 
+def find_adjective(string)
+  words = string.split(" ")
+  index = words.find_index("is")
+  words[index + 1]
+end
+
 lines = []
 
 File.open("reviews.txt") do |review_file|
@@ -15,14 +21,10 @@ relevant_lines = lines.find_all { |line| line.include?("Truncated") }
 
 reviews = relevant_lines.reject { |line| line.include?("--") }
 
-puts reviews
-
-def find_adjective(string)
-  words = string.split(" ")
-  index = words.find_index("is")
-  words[index + 1]
+adjectives = reviews.map do |review|
+  adjective = find_adjective(review)
+  "'#{adjective.capitalize}'"
 end
 
-adjective = find_adjective(reviews.first)
-
-puts adjective
+puts "The critics agree, Truncated is:"
+puts adjectives
