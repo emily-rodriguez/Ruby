@@ -44,4 +44,6 @@ rescue ThisError
   puts "I caught this!"
 rescue ThatError
   puts "I caught that!"
+rescue TheOtherError
+  puts "I caught the other!"
 end
