@@ -36,10 +36,26 @@ class Rectangle
 
 end
 
+class Square < Rectangle
+
+  def width=(value)
+    if value < 0
+      raise "Sides can't be negative"
+    end
+    @width = value
+    @height = value
+  end
+
+end
+
 rectangle = Rectangle.new
 rectangle.width = 2
 rectangle.height = 4
 puts rectangle.area
+
+square = Square.new
+square.width = 5
+puts square.area
 
 #Validation
 
