@@ -16,6 +16,11 @@ puts image("picture.jpg", 500, 400)
 class Rectangle
   attr_reader :width, :height
 
+  def initialize(width:, height:)
+    self.width = width
+    self.height = height
+  end
+
   def width=(value)
     if value < 0
       raise "Width can't be negative"
@@ -48,14 +53,9 @@ class Square < Rectangle
 
 end
 
-rectangle = Rectangle.new
-rectangle.width = 2
-rectangle.height = 4
+rectangle = Rectangle.new(width: 2, height: 4)
 puts rectangle.area
 
-square = Square.new
-square.width = 5
-puts square.area
 
 #Validation
 
